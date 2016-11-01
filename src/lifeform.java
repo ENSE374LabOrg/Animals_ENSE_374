@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class lifeform {
 	private	String type;
-	private	Boolean dead;
+	private	boolean dead;
 	private	List<String> foodSource;
 	private	List<String> predators;
 	private	int speed;
@@ -21,7 +21,7 @@ public class lifeform {
 		this.dead = false;
 		this.speed = 0;
 	}
-	public lifeform(String type, Boolean dead, ArrayList<String> foodSource, ArrayList<String> predators, int speed){
+	public lifeform(String type, boolean dead, ArrayList<String> foodSource, ArrayList<String> predators, int speed){
 		this.type = type;
 		this.dead = dead;
 		this.foodSource = foodSource;
@@ -33,5 +33,32 @@ public class lifeform {
 	}
 	public void eaten(){
 		System.out.println(type + "was eaten by" + predators);
+	}
+	public String getType(){
+		return this.type;
+	}
+	public void setType(String type){
+		this.type = type;
+	}
+	public boolean isDead(){
+		return this.dead;
+	}
+	public void setFoodSource(ArrayList<String> foodSource){
+		this.foodSource = foodSource;
+	}
+	public List<String> foodSource(){
+		return this.foodSource;
+	}
+	public void setpredators(ArrayList<String> predators){
+		this.predators = predators;
+	}
+	public List<String> getpredators(){
+		return this.predators;
+	}
+	public void setspeed(int speed){
+		this.speed = speed;
+	}
+	public int getspeed(){
+		return this.speed;
 	}
 }
