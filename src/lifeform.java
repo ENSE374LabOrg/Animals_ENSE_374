@@ -43,14 +43,14 @@ public class lifeform {
 	public boolean isDead(){
 		return this.dead;
 	}
-	public void setFoodSource(ArrayList<String> foodSource){
-		this.foodSource = foodSource;
+	public void setFoodSource(String foodSource){
+		this.foodSource.add(foodSource);
 	}
 	public List<String> foodSource(){
 		return this.foodSource;
 	}
-	public void setpredators(ArrayList<String> predators){
-		this.predators = predators;
+	public void setpredators(String predators){
+		this.predators.add(predators);
 	}
 	public List<String> getpredators(){
 		return this.predators;
