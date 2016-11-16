@@ -29,6 +29,7 @@ public class lifeform {
 		this.speed = speed;
 	}
 	public void eat(){
+		
 		System.out.println(type + "eats" + foodSource);
 	}
 	public void eaten(){
@@ -60,5 +61,20 @@ public class lifeform {
 	}
 	public int getspeed(){
 		return this.speed;
+	}
+	public int meet(lifeform enemy){
+		for(int i =0; i < this.foodSource.size(); i ++){
+				if(this.foodSource.get(i) == enemy.getType()){
+					System.out.println(enemy.getType() + "was eaten by" + this.type);
+					return 0;
+				}
+		}
+		for(int i =0; i < this.predators.size(); i ++){
+			if(this.predators.get(i) == enemy.getType()){
+				System.out.println(this.getType() + "was eaten by" + enemy.getType());
+				return 1;
+			}
+	}
+		return 2;
 	}
 }
