@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * 
  */
@@ -7,5 +9,18 @@
  *
  */
 public class Rabbit extends lifeform{
-
+	public Rabbit(){
+		String name = "Rabbit";
+		int speed = 5;
+		ArrayList<String> foodSource = new ArrayList<String>();
+		ArrayList<String> predators = new ArrayList<String>();
+		foodSource.add("Grass");
+		predators.add("Fox");
+		predators.add("Wolf");
+		this.setFoodSource(foodSource);
+		this.setpredators(predators);
+		this.setType(name);
+		this.setspeed(speed);
+		
+	}
 }
