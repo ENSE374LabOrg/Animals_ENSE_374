@@ -59,7 +59,14 @@ public class main {
 				environment[randomx][randomy] = new Wolf() ;
 			}			
 		}		
-		
+		for(int i=0;i<20;i++){
+			for(int j =0; j<50; j++){
+				if(environment[i][j] != null){
+					System.out.println(environment[i][j].getType() + " Position: " + i +" , " + j);
+				}
+					
+			}
+		}
 		
 		}
 }
