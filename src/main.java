@@ -82,11 +82,11 @@ public class main {
 			case 1:
 				for(int i=0;i<20;i++){
 					for(int j =0; j<50; j++){
-						int randomdirection = randomGenerator.nextInt(1);
+						int randomdirection = randomGenerator.nextInt(100);
 						if(environment[i][j] != null){
 							lifeform temp;
 							temp = environment[i][j];
-							if(randomdirection == 0){
+							if(randomdirection >= 50){
 								int tempint = environment[i][j].getspeed() + i;
 								if(tempint >= 20){
 									tempint -= 20;
@@ -136,7 +136,7 @@ public class main {
 									
 								}
 							}
-							if(randomdirection == 1){
+							if(randomdirection < 50){
 								int tempint = environment[i][j].getspeed() + j;
 								if(tempint >= 50){
 									tempint -= 50;
