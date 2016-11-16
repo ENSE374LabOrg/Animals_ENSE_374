@@ -20,7 +20,7 @@ public class main {
 		Scanner in = new Scanner(System.in);
 		int input = 0;
 		lifeform[][] environment = new lifeform[20][50];
-		for(int i =0; i < 20; i++){
+		for(int i =0; i < 50; i++){
 			int randomx = randomGenerator.nextInt(20);
 			int randomy = randomGenerator.nextInt(50);
 			int randomlifeform = randomGenerator.nextInt(11);
@@ -61,12 +61,14 @@ public class main {
 			if(randomlifeform == 11){
 				environment[randomx][randomy] = new Wolf() ;
 			}			
-		}		
+		}	
+		int counter = 1;
 		for(int i=0;i<20;i++){
 			for(int j =0; j<50; j++){
 				
 				if(environment[i][j] != null){
-					System.out.println(environment[i][j].getType() + " Position: " + i +" , " + j);
+					System.out.println(counter +"."+environment[i][j].getType() + " Position: " + i +" , " + j);
+					counter++;
 				}
 					
 			}
@@ -86,33 +88,112 @@ public class main {
 							temp = environment[i][j];
 							if(randomdirection == 0){
 								int tempint = environment[i][j].getspeed() + i;
-								if(tempint> 20){
+								if(tempint >= 20){
 									tempint -= 20;
-									int results = environment[i][j].meet(environment[tempint][j]);
+									if(environment[tempint][j] != null){
+										int results = environment[i][j].meet(environment[tempint][j]);
+										if(results == 0){
+											
+											environment[i][j] = null;
+											environment[tempint][j] = temp;
+										}
+										if(results == 1){
+											environment[i][j] = environment[tempint][j];
+											environment[tempint][j] = null;
+										}
+										if(results == 2){
+											environment[i][j] = environment[tempint][j];
+											environment[tempint][j] = temp;
+										}
+										
+									}
+									else{
+										environment[i][j] = environment[tempint][j];
+										environment[tempint][j] = temp;
+									}
 								}
 								else{
-									int results = environment[i][j].meet(environment[tempint][j]);
+									if(environment[tempint][j] != null){
+										int results = environment[i][j].meet(environment[tempint][j]);
+										if(results == 0){
+											
+											environment[i][j] = null;
+											environment[tempint][j] = temp;
+										}
+										if(results == 1){
+											environment[i][j] = environment[tempint][j];
+											environment[tempint][j] = null;
+										}
+										if(results == 2){
+											environment[i][j] = environment[tempint][j];
+											environment[tempint][j] = temp;
+										}
+									}
+									else{
+										environment[i][j] = environment[tempint][j];
+										environment[tempint][j] = temp;
+									}
+									
 								}
 							}
 							if(randomdirection == 1){
 								int tempint = environment[i][j].getspeed() + j;
-								if(tempint > 50){
+								if(tempint >= 50){
 									tempint -= 50;
-									int results = environment[i][j].meet(environment[i][tempint]);
+									if(environment[i][tempint] != null){
+										int results = environment[i][j].meet(environment[i][tempint]);
+										if(results == 0){
+											environment[i][j] = null;
+											environment[i][tempint] = temp;
+										}
+										if(results == 1){
+											environment[i][j] = environment[i][tempint];
+											environment[i][tempint] = null;
+										}
+										if(results == 2){
+											environment[i][j] = environment[i][tempint];
+											environment[i][tempint] = temp;
+										}
+										
+									}
+									else{
+										environment[i][j] = environment[i][tempint];
+										environment[i][tempint] = temp;
+									}
 								}
 								else{
-									int results = environment[i][j].meet(environment[i][tempint]);
+									if(environment[i][tempint] != null){
+										int results = environment[i][j].meet(environment[i][tempint]);
+										if(results == 0){
+											environment[i][j] = null;
+											environment[i][tempint] = temp;
+										}
+										if(results == 1){
+											environment[i][j] = environment[i][tempint];
+											environment[i][tempint] = null;
+										}
+										if(results == 2){
+											environment[i][j] = environment[i][tempint];
+											environment[i][tempint] = temp;
+										}
+									}
+									else{
+										environment[i][j] = environment[i][tempint];
+										environment[i][tempint] = temp;
+									}
+								}
 								}
 							}
 							
 						}
 							
 					}
-				}
+				counter = 1;
 				for(int i=0;i<20;i++){
 					for(int j =0; j<50; j++){
 						if(environment[i][j] != null){
-							System.out.println(environment[i][j].getType() + " Position: " + i +" , " + j);
+							System.out.println(counter +"." +environment[i][j].getType() + " Position: " + i +" , " + j);
+							counter++;
 						}
 							
 					}

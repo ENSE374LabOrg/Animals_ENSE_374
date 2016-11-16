@@ -65,13 +65,13 @@ public class lifeform {
 	public int meet(lifeform enemy){
 		for(int i =0; i < this.foodSource.size(); i ++){
 				if(this.foodSource.get(i) == enemy.getType()){
-					System.out.println(enemy.getType() + "was eaten by" + this.type);
+					System.out.println(enemy.getType() + " was eaten by " + this.type);
 					return 0;
 				}
 		}
 		for(int i =0; i < this.predators.size(); i ++){
 			if(this.predators.get(i) == enemy.getType()){
-				System.out.println(this.getType() + "was eaten by" + enemy.getType());
+				System.out.println(this.getType() + " was eaten by " + enemy.getType());
 				return 1;
 			}
 	}
