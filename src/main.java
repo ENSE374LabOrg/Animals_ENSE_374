@@ -85,20 +85,23 @@ public class main {
 							lifeform temp;
 							temp = environment[i][j];
 							if(randomdirection == 0){
-								if(environment[i][j].getspeed() + i > 20){
-									int tempint = environment[i][j].getspeed() + i - 20;
+								int tempint = environment[i][j].getspeed() + i;
+								if(tempint> 20){
+									tempint -= 20;
+									int results = environment[i][j].meet(environment[tempint][j]);
 								}
 								else{
-									
+									int results = environment[i][j].meet(environment[tempint][j]);
 								}
 							}
 							if(randomdirection == 1){
-								if(environment[i][j].getspeed() + j > 50){
-									int tempint = environment[i][j].getspeed() + j - 50;
-									
+								int tempint = environment[i][j].getspeed() + j;
+								if(tempint > 50){
+									tempint -= 50;
+									int results = environment[i][j].meet(environment[i][tempint]);
 								}
 								else{
-									
+									int results = environment[i][j].meet(environment[i][tempint]);
 								}
 							}
 							
