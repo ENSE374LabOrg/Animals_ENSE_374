@@ -15,7 +15,7 @@ public class lifeform {
 	private	List<String> foodSource;
 	private	List<String> predators;
 	private	int speed;
-	
+	private int health = 100;
 	public lifeform(){
 		this.type = "";
 		this.dead = false;
@@ -29,11 +29,12 @@ public class lifeform {
 		this.speed = speed;
 	}
 	public void eat(){
-		
+		health = health + 5;
 		System.out.println(type + "eats" + foodSource);
 	}
 	public void eaten(){
 		System.out.println(type + "was eaten by" + predators);
+		this.dead = true;
 	}
 	public String getType(){
 		return this.type;

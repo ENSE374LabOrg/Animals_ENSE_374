@@ -73,8 +73,30 @@ public class main {
 					
 			}
 		}
+		System.out.println("What would you like to do?");
+		System.out.println("1.Introduction.");
+		System.out.println("2.Start Simulation with Default .");
+		System.out.println("3.Start Simulation with specific dimensions.");
+		System.out.println("4.Start simulation with specific animals and default dimensions.");
+		System.out.println("5.Start simulation with specific animals and specific dimensions.");
+		input = in.nextInt();
+		switch(input){
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+		}
 		do{
-			System.out.println("What would you like to do?");
+			System.out.println("What would you like to do Next?");
+			System.out.println("1.Add an animal.");
+			System.out.println("1.Remove an animal.");
+			System.out.println("1.View Next Day.");
 			System.out.println("1.View Next Day.");
 			System.out.println("9.End Simulation.");
 			input = in.nextInt();
@@ -205,6 +227,7 @@ public class main {
 				System.out.println("Invalid input.");
 				break;
 			}
+			
 		}while(input != 9);
 		}
 }
