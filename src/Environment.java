@@ -163,5 +163,115 @@ public class Environment {
 				}
 			}
 		}
-		
+		public void move(){
+			Random randomGenerator = new Random();
+			for(int i=0;i<20;i++){
+				for(int j =0; j<50; j++){
+					int randomdirection = randomGenerator.nextInt(100);
+					if(habitat[i][j] != null){
+						lifeform temp;
+						temp = habitat[i][j];
+						if(randomdirection >= 50){
+							int tempint = habitat[i][j].getspeed() + i;
+							if(tempint >= 20){
+								tempint -= 20;
+								if(habitat[tempint][j] != null){
+									int results = habitat[i][j].meet(habitat[tempint][j]);
+									if(results == 0){
+										
+										habitat[i][j] = null;
+										habitat[tempint][j] = temp;
+									}
+									if(results == 1){
+										habitat[i][j] = habitat[tempint][j];
+										habitat[tempint][j] = null;
+									}
+									if(results == 2){
+										habitat[i][j] = habitat[tempint][j];
+										habitat[tempint][j] = temp;
+									}
+									
+								}
+								else{
+									habitat[i][j] = habitat[tempint][j];
+									habitat[tempint][j] = temp;
+								}
+							}
+							else{
+								if(habitat[tempint][j] != null){
+									int results = habitat[i][j].meet(habitat[tempint][j]);
+									if(results == 0){
+										
+										habitat[i][j] = null;
+										habitat[tempint][j] = temp;
+									}
+									if(results == 1){
+										habitat[i][j] = habitat[tempint][j];
+										habitat[tempint][j] = null;
+									}
+									if(results == 2){
+										habitat[i][j] = habitat[tempint][j];
+										habitat[tempint][j] = temp;
+									}
+								}
+								else{
+									habitat[i][j] = habitat[tempint][j];
+									habitat[tempint][j] = temp;
+								}
+								
+							}
+						}
+						if(randomdirection < 50){
+							int tempint = habitat[i][j].getspeed() + j;
+							if(tempint >= 50){
+								tempint -= 50;
+								if(habitat[i][tempint] != null){
+									int results = habitat[i][j].meet(habitat[i][tempint]);
+									if(results == 0){
+										habitat[i][j] = null;
+										habitat[i][tempint] = temp;
+									}
+									if(results == 1){
+										habitat[i][j] = habitat[i][tempint];
+										habitat[i][tempint] = null;
+									}
+									if(results == 2){
+										habitat[i][j] = habitat[i][tempint];
+										habitat[i][tempint] = temp;
+									}
+									
+								}
+								else{
+									habitat[i][j] = habitat[i][tempint];
+									habitat[i][tempint] = temp;
+								}
+							}
+							else{
+								if(habitat[i][tempint] != null){
+									int results = habitat[i][j].meet(habitat[i][tempint]);
+									if(results == 0){
+										habitat[i][j] = null;
+										habitat[i][tempint] = temp;
+									}
+									if(results == 1){
+										habitat[i][j] = habitat[i][tempint];
+										habitat[i][tempint] = null;
+									}
+									if(results == 2){
+										habitat[i][j] = habitat[i][tempint];
+										habitat[i][tempint] = temp;
+									}
+								}
+								else{
+									habitat[i][j] = habitat[i][tempint];
+									habitat[i][tempint] = temp;
+								}
+							}
+							}
+						}
+						
+					}
+						
+				}
+		}
 }

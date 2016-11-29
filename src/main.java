@@ -17,53 +17,12 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Random randomGenerator = new Random();
+		Environment environment;
+		int x;
+		int y;
+		int animals;
 		Scanner in = new Scanner(System.in);
 		int input = 0;
-		lifeform[][] environment = new lifeform[20][50];
-		for(int i =0; i < 50; i++){
-			int randomx = randomGenerator.nextInt(20);
-			int randomy = randomGenerator.nextInt(50);
-			int randomlifeform = randomGenerator.nextInt(11);
-			
-			if(randomlifeform == 0){
-				environment[randomx][randomy] = new ShrubTree() ;
-			}
-			if(randomlifeform == 1){
-				environment[randomx][randomy] = new Grass() ;
-			}
-			if(randomlifeform == 2){
-				environment[randomx][randomy] = new Caterpillar() ;
-			}
-			if(randomlifeform == 3){
-				environment[randomx][randomy] = new Bluejay() ;
-			}
-			if(randomlifeform == 4){
-				environment[randomx][randomy] = new Grasshopper() ;
-			}
-			if(randomlifeform == 5){
-				environment[randomx][randomy] = new Mouse() ;
-			}
-			if(randomlifeform == 6){
-				environment[randomx][randomy] = new Deer() ;
-			}
-			if(randomlifeform == 7){
-				environment[randomx][randomy] = new Hawk() ;
-			}	
-			if(randomlifeform == 8){
-				environment[randomx][randomy] = new Fox() ;
-			}
-			if(randomlifeform == 9){
-				environment[randomx][randomy] = new Squirrel() ;
-			}
-			if(randomlifeform == 10){
-				environment[randomx][randomy] = new Rabbit() ;
-			}
-			if(randomlifeform == 11){
-				environment[randomx][randomy] = new Wolf() ;
-			}			
-		}	
-		int counter = 1;
-		
 		do{
 		System.out.println("What would you like to do?(Enter An Integer)");
 		System.out.println("1.Introduction.");
@@ -77,146 +36,54 @@ public class main {
 			case 1:
 				System.out.println("This program shows a simulation for the Sask Wildlfe Federation.");
 				System.out.println("Its a simulation of animals in a habitat.");
-				System.out.println("Its a simulation of animals in a habitat.");
+				System.out.println("Each animals moves a certain distance based on a set value of speed.");
+				System.out.println("If 2 animals land on the same tile and their are predator and prey the prey will be eaten.");
+				System.out.println("Simulation By Ahmed Shamiss");
 				break;
 			case 2:
+				environment = new Environment();
 				break;
 			case 3:
+				System.out.println("Please enter x dimension:");
+				input = in.nextInt();
+				x = input;
+				System.out.println("Please enter y dimension:");
+				input = in.nextInt();
+				y = input;
+				environment = new Environment(x,y,50);
 				break;
 			case 4:
+				System.out.println("Please enter Number of animals in sim:");
+				input = in.nextInt();
+				animals = input;
+				environment = new Environment(20,50,animals);
 				break;
 			case 5:
+				System.out.println("Please enter x dimension:");
+				input = in.nextInt();
+				x = input;
+				System.out.println("Please enter y dimension:");
+				input = in.nextInt();
+				y = input;
+				System.out.println("Please enter Number of animals in sim:");
+				input = in.nextInt();
+				animals = input;
+				environment = new Environment(x,y,animals);
 				break;
 		}
 		}while(input == 1);
 		do{
 			System.out.println("What would you like to do Next?");
 			System.out.println("1.Add an animal.");
-			System.out.println("1.Remove an animal.");
-			System.out.println("1.View Next Day.");
-			System.out.println("1.View Next Day.");
+			System.out.println("2.Remove an animal.");
+			System.out.println("3.View Next Day.");
+			System.out.println("4.Print Animals as a List.");
+			System.out.println("5.Print Animals as a Map.");
 			System.out.println("9.End Simulation.");
 			input = in.nextInt();
 			switch(input){
 			case 1:
-				for(int i=0;i<20;i++){
-					for(int j =0; j<50; j++){
-						int randomdirection = randomGenerator.nextInt(100);
-						if(environment[i][j] != null){
-							lifeform temp;
-							temp = environment[i][j];
-							if(randomdirection >= 50){
-								int tempint = environment[i][j].getspeed() + i;
-								if(tempint >= 20){
-									tempint -= 20;
-									if(environment[tempint][j] != null){
-										int results = environment[i][j].meet(environment[tempint][j]);
-										if(results == 0){
-											
-											environment[i][j] = null;
-											environment[tempint][j] = temp;
-										}
-										if(results == 1){
-											environment[i][j] = environment[tempint][j];
-											environment[tempint][j] = null;
-										}
-										if(results == 2){
-											environment[i][j] = environment[tempint][j];
-											environment[tempint][j] = temp;
-										}
-										
-									}
-									else{
-										environment[i][j] = environment[tempint][j];
-										environment[tempint][j] = temp;
-									}
-								}
-								else{
-									if(environment[tempint][j] != null){
-										int results = environment[i][j].meet(environment[tempint][j]);
-										if(results == 0){
-											
-											environment[i][j] = null;
-											environment[tempint][j] = temp;
-										}
-										if(results == 1){
-											environment[i][j] = environment[tempint][j];
-											environment[tempint][j] = null;
-										}
-										if(results == 2){
-											environment[i][j] = environment[tempint][j];
-											environment[tempint][j] = temp;
-										}
-									}
-									else{
-										environment[i][j] = environment[tempint][j];
-										environment[tempint][j] = temp;
-									}
-									
-								}
-							}
-							if(randomdirection < 50){
-								int tempint = environment[i][j].getspeed() + j;
-								if(tempint >= 50){
-									tempint -= 50;
-									if(environment[i][tempint] != null){
-										int results = environment[i][j].meet(environment[i][tempint]);
-										if(results == 0){
-											environment[i][j] = null;
-											environment[i][tempint] = temp;
-										}
-										if(results == 1){
-											environment[i][j] = environment[i][tempint];
-											environment[i][tempint] = null;
-										}
-										if(results == 2){
-											environment[i][j] = environment[i][tempint];
-											environment[i][tempint] = temp;
-										}
-										
-									}
-									else{
-										environment[i][j] = environment[i][tempint];
-										environment[i][tempint] = temp;
-									}
-								}
-								else{
-									if(environment[i][tempint] != null){
-										int results = environment[i][j].meet(environment[i][tempint]);
-										if(results == 0){
-											environment[i][j] = null;
-											environment[i][tempint] = temp;
-										}
-										if(results == 1){
-											environment[i][j] = environment[i][tempint];
-											environment[i][tempint] = null;
-										}
-										if(results == 2){
-											environment[i][j] = environment[i][tempint];
-											environment[i][tempint] = temp;
-										}
-									}
-									else{
-										environment[i][j] = environment[i][tempint];
-										environment[i][tempint] = temp;
-									}
-								}
-								}
-							}
-							
-						}
-							
-					}
-				counter = 1;
-				for(int i=0;i<20;i++){
-					for(int j =0; j<50; j++){
-						if(environment[i][j] != null){
-							System.out.println(counter +"." +environment[i][j].getType() + " Position: " + i +" , " + j);
-							counter++;
-						}
-							
-					}
-				}
+				
 				break;
 			case 9:
 				break;
