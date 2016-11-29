@@ -10,6 +10,7 @@ import java.util.List;
  *
  */
 public class lifeform {
+	private int id;
 	private	String type;
 	private	boolean dead;
 	private	List<String> foodSource;
@@ -18,6 +19,7 @@ public class lifeform {
 	private int health = 100;
 	private char symbol;
 	public lifeform(){
+		this.id = 0;
 		this.type = "";
 		this.dead = false;
 		this.speed = 0;
@@ -78,15 +80,28 @@ public class lifeform {
 		for(int i =0; i < this.foodSource.size(); i ++){
 				if(this.foodSource.get(i) == enemy.getType()){
 					System.out.println(enemy.getType() + " was eaten by " + this.type);
+					this.inchealth();
+					enemy.setdeath(true);
 					return 0;
 				}
 		}
 		for(int i =0; i < this.predators.size(); i ++){
 			if(this.predators.get(i) == enemy.getType()){
 				System.out.println(this.getType() + " was eaten by " + enemy.getType());
+				this.setdeath(true);
+				enemy.inchealth();
 				return 1;
 			}
 	}
 		return 2;
+	}
+	public void inchealth(){
+		this.health = health + 5;
+	}
+	public void dechealth(){
+		this.health = health - 10;
+	}
+	public int gethealth(){
+		return health;
 	}
 }

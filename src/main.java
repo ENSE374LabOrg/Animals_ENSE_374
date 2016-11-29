@@ -17,7 +17,7 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Random randomGenerator = new Random();
-		Environment environment;
+		Environment environment = null;
 		int x;
 		int y;
 		int animals;
@@ -70,6 +70,9 @@ public class main {
 				animals = input;
 				environment = new Environment(x,y,animals);
 				break;
+			default:
+				System.out.println("Invalid input.");
+				break;
 		}
 		}while(input == 1);
 		do{
@@ -83,7 +86,19 @@ public class main {
 			input = in.nextInt();
 			switch(input){
 			case 1:
-				
+				break;
+			case 2:
+				break;
+			case 3:
+				environment.move();
+				environment.checkhealth();
+				System.out.println("Move complete.");
+				break;
+			case 4:
+				environment.print();
+				break;
+			case 5:
+				environment.printmap();
 				break;
 			case 9:
 				break;

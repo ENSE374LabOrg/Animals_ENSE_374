@@ -14,12 +14,12 @@ public class Environment {
 		int ydimension;
 		Environment(){
 			Random randomGenerator = new Random();
-			habitat = new lifeform[20][50];
-			xdimension = 20;
-			ydimension = 50;
-			for(int i =0; i < 50; i++){
-				int randomx = randomGenerator.nextInt(20);
-				int randomy = randomGenerator.nextInt(50);
+			habitat = new lifeform[10][10];
+			xdimension = 10;
+			ydimension = 10;
+			for(int i =0; i < 10; i++){
+				int randomx = randomGenerator.nextInt(xdimension);
+				int randomy = randomGenerator.nextInt(ydimension);
 				int randomlifeform = randomGenerator.nextInt(11);
 				
 				if(randomlifeform == 0){
@@ -126,7 +126,7 @@ public class Environment {
 				for(int j =0; j<ydimension; j++){
 					
 					if(habitat[i][j] != null){
-						System.out.println(counter +"."+habitat[i][j].getType() + " Position: " + i +" , " + j);
+						System.out.println(counter +"."+habitat[i][j].getType() + " Position: " + i +" , " + j +" Health = " + habitat[i][j].gethealth() + "%");
 						counter++;
 					}
 					
@@ -152,29 +152,30 @@ public class Environment {
 				for(int j =0; j<ydimension; j++){
 					
 					if(habitat[i][j] != null){
-						System.out.print(habitat[i][j].getsymbol());
+						System.out.print(" "+habitat[i][j].getsymbol() + " ");
 						
 					}
 					else{
-						System.out.print("*");
+						System.out.print(" * ");
 					}
 					
 						
 				}
+				System.out.println();
 			}
 		}
 		public void move(){
 			Random randomGenerator = new Random();
-			for(int i=0;i<20;i++){
-				for(int j =0; j<50; j++){
+			for(int i=0;i<xdimension;i++){
+				for(int j =0; j<ydimension; j++){
 					int randomdirection = randomGenerator.nextInt(100);
 					if(habitat[i][j] != null){
 						lifeform temp;
 						temp = habitat[i][j];
 						if(randomdirection >= 50){
 							int tempint = habitat[i][j].getspeed() + i;
-							if(tempint >= 20){
-								tempint -= 20;
+							if(tempint >= xdimension){
+								tempint -= xdimension;
 								if(habitat[tempint][j] != null){
 									int results = habitat[i][j].meet(habitat[tempint][j]);
 									if(results == 0){
@@ -223,8 +224,8 @@ public class Environment {
 						}
 						if(randomdirection < 50){
 							int tempint = habitat[i][j].getspeed() + j;
-							if(tempint >= 50){
-								tempint -= 50;
+							if(tempint >= ydimension){
+								tempint -= ydimension;
 								if(habitat[i][tempint] != null){
 									int results = habitat[i][j].meet(habitat[i][tempint]);
 									if(results == 0){
@@ -268,10 +269,25 @@ public class Environment {
 								}
 							}
 							}
+						
 						}
 						
 					}
 						
 				}
+		}
+		public void checkhealth(){
+			for(int i=0;i<xdimension;i++){
+				for(int j =0; j<ydimension; j++){
+					if(habitat[i][j] != null){
+						habitat[i][j].dechealth();
+						if(habitat[i][j].gethealth() <= 0){
+							habitat[i][j].setdeath(true);
+							System.out.println(habitat[i][j].getType() + " has died of starvation");
+							habitat[i][j] = null;
+						}
+					}
+				}
+			}
 		}
 }
