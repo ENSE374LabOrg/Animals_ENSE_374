@@ -16,10 +16,12 @@ public class lifeform {
 	private	List<String> predators;
 	private	int speed;
 	private int health = 100;
+	private char symbol;
 	public lifeform(){
 		this.type = "";
 		this.dead = false;
 		this.speed = 0;
+		this.symbol = 'L';
 	}
 	public lifeform(String type, boolean dead, ArrayList<String> foodSource, ArrayList<String> predators, int speed){
 		this.type = type;
@@ -27,6 +29,12 @@ public class lifeform {
 		this.foodSource = foodSource;
 		this.predators = predators;
 		this.speed = speed;
+	}
+	public void setsymbol(char x){
+		this.symbol = x;
+	}
+	public char getsymbol(){
+		return this.symbol;
 	}
 	public void eat(){
 		health = health + 5;
@@ -44,6 +52,9 @@ public class lifeform {
 	}
 	public boolean isDead(){
 		return this.dead;
+	}
+	public void setdeath(boolean state){
+		this.dead = state;
 	}
 	public void setFoodSource(ArrayList<String> foodSource){
 		this.foodSource = foodSource;

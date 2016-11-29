@@ -22,6 +22,6 @@ public class Fox extends lifeform{
 		this.setpredators(predators);
 		this.setType(name);
 		this.setspeed(speed);
-		
+		this.setsymbol('F');
 	}
 }

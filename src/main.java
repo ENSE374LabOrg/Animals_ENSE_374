@@ -63,25 +63,21 @@ public class main {
 			}			
 		}	
 		int counter = 1;
-		for(int i=0;i<20;i++){
-			for(int j =0; j<50; j++){
-				
-				if(environment[i][j] != null){
-					System.out.println(counter +"."+environment[i][j].getType() + " Position: " + i +" , " + j);
-					counter++;
-				}
-					
-			}
-		}
-		System.out.println("What would you like to do?");
+		
+		do{
+		System.out.println("What would you like to do?(Enter An Integer)");
 		System.out.println("1.Introduction.");
 		System.out.println("2.Start Simulation with Default .");
 		System.out.println("3.Start Simulation with specific dimensions.");
 		System.out.println("4.Start simulation with specific animals and default dimensions.");
 		System.out.println("5.Start simulation with specific animals and specific dimensions.");
+		
 		input = in.nextInt();
 		switch(input){
 			case 1:
+				System.out.println("This program shows a simulation for the Sask Wildlfe Federation.");
+				System.out.println("Its a simulation of animals in a habitat.");
+				System.out.println("Its a simulation of animals in a habitat.");
 				break;
 			case 2:
 				break;
@@ -92,6 +88,7 @@ public class main {
 			case 5:
 				break;
 		}
+		}while(input == 1);
 		do{
 			System.out.println("What would you like to do Next?");
 			System.out.println("1.Add an animal.");

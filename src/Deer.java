@@ -21,6 +21,7 @@ public class Deer extends lifeform{
 		this.setpredators(predators);
 		this.setType(name);
 		this.setspeed(speed);
+		this.setsymbol('D');
 	}
 	
 }

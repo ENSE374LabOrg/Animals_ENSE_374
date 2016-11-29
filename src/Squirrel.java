@@ -21,6 +21,6 @@ public class Squirrel extends lifeform{
 		this.setpredators(predators);
 		this.setType(name);
 		this.setspeed(speed);
-		
+		this.setsymbol('S');
 	}
 }
