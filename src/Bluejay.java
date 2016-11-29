@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Bluejay extends lifeform{
-	public Bluejay(){
+	public Bluejay(int id){
 		String name = "Bluejay";
 		int speed = 4;
 		ArrayList<String> foodSource = new ArrayList<String>();
@@ -15,5 +15,6 @@ public class Bluejay extends lifeform{
 		this.setType(name);
 		this.setspeed(speed);
 		this.setsymbol('B');
+		this.setid(id);
 	}
 }

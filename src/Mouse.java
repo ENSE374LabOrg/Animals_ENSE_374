@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Mouse extends lifeform{
 	
-	public Mouse(){
+	public Mouse(int id){
 		String name = "Mouse";
 		int speed = 3;
 		ArrayList<String> foodSource = new ArrayList<String>();
@@ -24,6 +24,6 @@ public class Mouse extends lifeform{
 		this.setType(name);
 		this.setspeed(speed);
 		this.setsymbol('M');
-		
+		this.setid(id);
 	}
 }

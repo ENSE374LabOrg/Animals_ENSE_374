@@ -32,6 +32,12 @@ public class lifeform {
 		this.predators = predators;
 		this.speed = speed;
 	}
+	public void setid(int x){
+		this.id = x;
+	}
+	public int getid(){
+		return this.id;
+	}
 	public void setsymbol(char x){
 		this.symbol = x;
 	}

@@ -9,7 +9,7 @@ import java.util.ArrayList;
  *
  */
 public class Rabbit extends lifeform{
-	public Rabbit(){
+	public Rabbit(int id){
 		String name = "Rabbit";
 		int speed = 5;
 		ArrayList<String> foodSource = new ArrayList<String>();
@@ -22,5 +22,6 @@ public class Rabbit extends lifeform{
 		this.setType(name);
 		this.setspeed(speed);
 		this.setsymbol('R');
+		this.setid(id);
 	}
 }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Caterpillar extends lifeform{
-	public Caterpillar(){
+	public Caterpillar(int id){
 		String name = "Caterpillar";
 		int speed = 1;
 		ArrayList<String> foodSource = new ArrayList<String>();
@@ -13,6 +13,7 @@ public class Caterpillar extends lifeform{
 		this.setType(name);
 		this.setspeed(speed);
 		this.setsymbol('C');
+		this.setid(id);
 	}
 	
 }

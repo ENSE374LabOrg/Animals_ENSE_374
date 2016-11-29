@@ -17,47 +17,49 @@ public class Environment {
 			habitat = new lifeform[10][10];
 			xdimension = 10;
 			ydimension = 10;
+			int counter = 1;
 			for(int i =0; i < 10; i++){
 				int randomx = randomGenerator.nextInt(xdimension);
 				int randomy = randomGenerator.nextInt(ydimension);
 				int randomlifeform = randomGenerator.nextInt(11);
 				
 				if(randomlifeform == 0){
-					habitat[randomx][randomy] = new ShrubTree() ;
+					habitat[randomx][randomy] = new ShrubTree(counter) ;
 				}
 				if(randomlifeform == 1){
-					habitat[randomx][randomy] = new Grass() ;
+					habitat[randomx][randomy] = new Grass(counter) ;
 				}
 				if(randomlifeform == 2){
-					habitat[randomx][randomy] = new Caterpillar() ;
+					habitat[randomx][randomy] = new Caterpillar(counter) ;
 				}
 				if(randomlifeform == 3){
-					habitat[randomx][randomy] = new Bluejay() ;
+					habitat[randomx][randomy] = new Bluejay(counter) ;
 				}
 				if(randomlifeform == 4){
-					habitat[randomx][randomy] = new Grasshopper() ;
+					habitat[randomx][randomy] = new Grasshopper(counter) ;
 				}
 				if(randomlifeform == 5){
-					habitat[randomx][randomy] = new Mouse() ;
+					habitat[randomx][randomy] = new Mouse(counter) ;
 				}
 				if(randomlifeform == 6){
-					habitat[randomx][randomy] = new Deer() ;
+					habitat[randomx][randomy] = new Deer(counter) ;
 				}
 				if(randomlifeform == 7){
-					habitat[randomx][randomy] = new Hawk() ;
+					habitat[randomx][randomy] = new Hawk(counter) ;
 				}	
 				if(randomlifeform == 8){
-					habitat[randomx][randomy] = new Fox() ;
+					habitat[randomx][randomy] = new Fox(counter) ;
 				}
 				if(randomlifeform == 9){
-					habitat[randomx][randomy] = new Squirrel() ;
+					habitat[randomx][randomy] = new Squirrel(counter) ;
 				}
 				if(randomlifeform == 10){
-					habitat[randomx][randomy] = new Rabbit() ;
+					habitat[randomx][randomy] = new Rabbit(counter) ;
 				}
 				if(randomlifeform == 11){
-					habitat[randomx][randomy] = new Wolf() ;
+					habitat[randomx][randomy] = new Wolf(counter) ;
 				}			
+				++counter;
 			}
 		}
 		
@@ -66,47 +68,49 @@ public class Environment {
 			habitat = new lifeform[x][y];
 			xdimension = x;
 			ydimension = y;
+			int counter = 1;
 			for(int i =0; i < numofanimals; i++){
 				int randomx = randomGenerator.nextInt(x);
 				int randomy = randomGenerator.nextInt(y);
 				int randomlifeform = randomGenerator.nextInt(11);
 				
 				if(randomlifeform == 0){
-					habitat[randomx][randomy] = new ShrubTree() ;
+					habitat[randomx][randomy] = new ShrubTree(counter) ;
 				}
 				if(randomlifeform == 1){
-					habitat[randomx][randomy] = new Grass() ;
+					habitat[randomx][randomy] = new Grass(counter) ;
 				}
 				if(randomlifeform == 2){
-					habitat[randomx][randomy] = new Caterpillar() ;
+					habitat[randomx][randomy] = new Caterpillar(counter) ;
 				}
 				if(randomlifeform == 3){
-					habitat[randomx][randomy] = new Bluejay() ;
+					habitat[randomx][randomy] = new Bluejay(counter) ;
 				}
 				if(randomlifeform == 4){
-					habitat[randomx][randomy] = new Grasshopper() ;
+					habitat[randomx][randomy] = new Grasshopper(counter) ;
 				}
 				if(randomlifeform == 5){
-					habitat[randomx][randomy] = new Mouse() ;
+					habitat[randomx][randomy] = new Mouse(counter) ;
 				}
 				if(randomlifeform == 6){
-					habitat[randomx][randomy] = new Deer() ;
+					habitat[randomx][randomy] = new Deer(counter) ;
 				}
 				if(randomlifeform == 7){
-					habitat[randomx][randomy] = new Hawk() ;
+					habitat[randomx][randomy] = new Hawk(counter) ;
 				}	
 				if(randomlifeform == 8){
-					habitat[randomx][randomy] = new Fox() ;
+					habitat[randomx][randomy] = new Fox(counter) ;
 				}
 				if(randomlifeform == 9){
-					habitat[randomx][randomy] = new Squirrel() ;
+					habitat[randomx][randomy] = new Squirrel(counter) ;
 				}
 				if(randomlifeform == 10){
-					habitat[randomx][randomy] = new Rabbit() ;
+					habitat[randomx][randomy] = new Rabbit(counter) ;
 				}
 				if(randomlifeform == 11){
-					habitat[randomx][randomy] = new Wolf() ;
-				}			
+					habitat[randomx][randomy] = new Wolf(counter) ;
+				}
+				++counter;
 			}
 		}
 		public void add(lifeform newlifeform , int x, int y){
@@ -121,13 +125,12 @@ public class Environment {
 			
 		}
 		public void print(){
-			int counter = 1;
 			for(int i=0;i<xdimension;i++){
 				for(int j =0; j<ydimension; j++){
 					
 					if(habitat[i][j] != null){
-						System.out.println(counter +"."+habitat[i][j].getType() + " Position: " + i +" , " + j +" Health = " + habitat[i][j].gethealth() + "%");
-						counter++;
+						System.out.println("ID:" + habitat[i][j].getid() +" "+habitat[i][j].getType() + " Position: " + i +" , " + j +" Health = " + habitat[i][j].gethealth() + "%");
+					
 					}
 					
 						
