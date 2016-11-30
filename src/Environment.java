@@ -337,11 +337,15 @@ public class Environment {
 			}
 		}
 		public boolean isEmpty(){
-			if(habitat == null){
-				System.out.println("The simulation is empty."); 
-				System.out.println("Everything is dead press 9 to end."); 
-				return true;
+			boolean check = true;
+			
+			for(int i = 0; i < xdimension ; i++){
+				for(int j = 0; j < ydimension; j++){
+					if(habitat[i][j] != null){
+						check = false;
+					}
+				}
 			}
-			return false;
+			return check;
 		}
 }

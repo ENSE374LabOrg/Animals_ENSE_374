@@ -126,6 +126,9 @@ public class main {
 				break;
 			case 4:
 				environment.print();
+				if(environment.isEmpty()){
+					System.out.println("World is Empty");
+				}
 				break;
 			case 5:
 				environment.printmap();
@@ -137,16 +140,24 @@ public class main {
 					environment.move();
 					environment.checkhealth();
 					if(environment.isEmpty()){
+						System.out.println("Day of extinction: " + i);
+						System.out.println("The simulation is empty."); 
+						System.out.println("Everything is dead press 9 to end."); 
 						break;
 					}
 					
 				}
 				break;
 			case 7:
-				while(environment.isEmpty()){
+				int daystaken = 0;
+				while(!environment.isEmpty()){
 					environment.move();
 					environment.checkhealth();
+					daystaken++;
 				}
+				System.out.println("Day of extinction: " + daystaken);
+				System.out.println("The simulation is empty."); 
+				System.out.println("Everything is dead press 9 to end."); 
 				break;
 			case 9:
 				break;
