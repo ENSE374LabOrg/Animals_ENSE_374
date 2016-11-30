@@ -16,7 +16,6 @@ public class main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Random randomGenerator = new Random();
 		int type = 0;
 		Environment environment = null;
 		int x;
