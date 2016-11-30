@@ -45,7 +45,7 @@ public class lifeform {
 		return this.symbol;
 	}
 	public void eat(){
-		health = health + 5;
+		inchealth();
 		System.out.println(type + "eats" + foodSource);
 	}
 	public void eaten(){
@@ -102,10 +102,10 @@ public class lifeform {
 		return 2;
 	}
 	public void inchealth(){
-		this.health = health + 5;
+		this.health = health + 10;
 	}
 	public void dechealth(){
-		this.health = health - 10;
+		this.health = health - 5;
 	}
 	public int gethealth(){
 		return health;
