@@ -57,7 +57,7 @@ public class main {
 				System.out.println("Please enter Number of lifeforms in sim:");
 				input = in.nextInt();
 				animals = input;
-				environment = new Environment(20,50,animals);
+				environment = new Environment(10,10,animals);
 				break;
 			case 5:
 				System.out.println("Please enter x dimension:");
