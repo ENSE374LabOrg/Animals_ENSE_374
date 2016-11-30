@@ -336,10 +336,12 @@ public class Environment {
 				}
 			}
 		}
-		public void isEmpty(){
+		public boolean isEmpty(){
 			if(habitat == null){
 				System.out.println("The simulation is empty."); 
 				System.out.println("Everything is dead press 9 to end."); 
+				return true;
 			}
+			return false;
 		}
 }

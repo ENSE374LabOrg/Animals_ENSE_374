@@ -136,9 +136,17 @@ public class main {
 				for(int i = 0; i < type ; i++){
 					environment.move();
 					environment.checkhealth();
+					if(environment.isEmpty()){
+						break;
+					}
+					
 				}
 				break;
 			case 7:
+				while(environment.isEmpty()){
+					environment.move();
+					environment.checkhealth();
+				}
 				break;
 			case 9:
 				break;
