@@ -12,12 +12,13 @@ public class Environment {
 		lifeform[][] habitat;
 		int xdimension;
 		int ydimension;
+		int counter = 1;
 		Environment(){
 			Random randomGenerator = new Random();
 			habitat = new lifeform[10][10];
 			xdimension = 10;
 			ydimension = 10;
-			int counter = 1;
+			
 			for(int i =0; i < 10; i++){
 				int randomx = randomGenerator.nextInt(xdimension);
 				int randomy = randomGenerator.nextInt(ydimension);
@@ -113,13 +114,55 @@ public class Environment {
 				++counter;
 			}
 		}
-		public void add(lifeform newlifeform , int x, int y){
-			habitat[x][y] = newlifeform;
+		public void add(int type , int x, int y){
+			if(type == 1){
+				habitat[x][y] = new ShrubTree(counter) ;
+			}
+			if(type == 2){
+				habitat[x][y] = new Grass(counter) ;
+			}
+			if(type == 3){
+				habitat[x][y] = new Caterpillar(counter) ;
+			}
+			if(type == 4){
+				habitat[x][y] = new Bluejay(counter) ;
+			}
+			if(type == 5){
+				habitat[x][y] = new Grasshopper(counter) ;
+			}
+			if(type == 6){
+				habitat[x][y] = new Mouse(counter) ;
+			}
+			if(type == 8){
+				habitat[x][y] = new Deer(counter) ;
+			}
+			if(type == 10){
+				habitat[x][y] = new Hawk(counter) ;
+			}	
+			if(type == 11){
+				habitat[x][y] = new Fox(counter) ;
+			}
+			if(type == 9){
+				habitat[x][y] = new Squirrel(counter) ;
+			}
+			if(type == 7){
+				habitat[x][y] = new Rabbit(counter) ;
+			}
+			if(type == 12){
+				habitat[x][y] = new Wolf(counter) ;
+			}
+			++counter;
 			
 		}
 		public void remove(int x, int y){
+			if(habitat[x][y] != null){
+			System.out.println(habitat[x][y].getType() + " has been removed from the simulation.");
 			habitat[x][y].setdeath(true);
 			habitat[x][y] = null;
+			}
+			else{
+				System.out.println("No animal in sight.");
+			}
 		}
 		public void nextDay(){
 			
@@ -291,6 +334,12 @@ public class Environment {
 						}
 					}
 				}
+			}
+		}
+		public void isEmpty(){
+			if(habitat == null){
+				System.out.println("The simulation is empty."); 
+				System.out.println("Everything is dead press 9 to end."); 
 			}
 		}
 }

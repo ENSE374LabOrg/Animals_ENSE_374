@@ -17,6 +17,7 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Random randomGenerator = new Random();
+		int type = 0;
 		Environment environment = null;
 		int x;
 		int y;
@@ -82,17 +83,45 @@ public class main {
 			System.out.println("3.View Next Day.");
 			System.out.println("4.Print Animals as a List.");
 			System.out.println("5.Print Animals as a Map.");
+			System.out.println("6.Skip n Days.");
+			System.out.println("7.Skip to the end.");
 			System.out.println("9.End Simulation.");
 			input = in.nextInt();
 			switch(input){
 			case 1:
-				
+				System.out.println("Please Enter type of animal:");
+				System.out.println("1.ShrubTree");
+				System.out.println("2.Grass");
+				System.out.println("3.Caterpillar2");
+				System.out.println("4.Bluejay");
+				System.out.println("5.Grasshopper");
+				System.out.println("6.Mouse");
+				System.out.println("7.Rabbit");
+				System.out.println("8.Deer");
+				System.out.println("9.Squirrel");
+				System.out.println("10.Hawk");
+				System.out.println("11.Fox");
+				System.out.println("12.Wolf");
+				type = in.nextInt();
+				System.out.println("Please enter the x and y coordinates of the area you would like to insert you animal:");
+				System.out.print("x:");
+				x = in.nextInt();
+				System.out.print("y:");
+				y = in.nextInt();
+				environment.add(type, x, y);
 				break;
 			case 2:
+				System.out.println("Please Enter Coordinates of animal you want to kill:");
+				System.out.print("x:");
+				x = in.nextInt();
+				System.out.print("y:");
+				y = in.nextInt();
+				environment.remove( x, y);
 				break;
 			case 3:
 				environment.move();
 				environment.checkhealth();
+				environment.isEmpty();
 				System.out.println("Move complete.");
 				break;
 			case 4:
@@ -100,6 +129,16 @@ public class main {
 				break;
 			case 5:
 				environment.printmap();
+				break;
+			case 6:
+				System.out.println("Please Enter your N value:");
+				type = in.nextInt();
+				for(int i = 0; i < type ; i++){
+					environment.move();
+					environment.checkhealth();
+				}
+				break;
+			case 7:
 				break;
 			case 9:
 				break;
