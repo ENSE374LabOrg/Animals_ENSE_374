@@ -85,6 +85,7 @@ public class main {
 			System.out.println("5.Print Animals as a Map.");
 			System.out.println("6.Skip n Days.");
 			System.out.println("7.Skip to the end.");
+			System.out.println("8.Check on an animal.");
 			System.out.println("9.End Simulation.");
 			input = in.nextInt();
 			switch(input){
