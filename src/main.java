@@ -160,6 +160,11 @@ public class main {
 				System.out.println("The simulation is empty."); 
 				System.out.println("Everything is dead press 9 to end."); 
 				break;
+			case 8:
+				System.out.println("Please enter animal ID:");
+				type = in.nextInt();
+				environment.selector(type);
+				break;
 			case 9:
 				break;
 			default:

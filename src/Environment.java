@@ -348,4 +348,25 @@ public class Environment {
 			}
 			return check;
 		}
+		public void selector(int id){
+
+			for(int i = 0; i < xdimension ; i++){
+				for(int j = 0; j < ydimension; j++){
+					if(habitat[i][j] != null){
+					if(habitat[i][j].getid() == id){
+						System.out.println("Animal Profile:");
+						System.out.println("ID:" +habitat[i][j].getid());
+						System.out.println("Type:" +habitat[i][j].getType());
+						System.out.println("Symbol:" +habitat[i][j].getsymbol());
+						System.out.println("Health:" +habitat[i][j].gethealth());
+						System.out.println("Speed:" +habitat[i][j].getspeed());
+						System.out.println("Food Source:" + habitat[i][j].foodSource());
+						System.out.println("Predators:" +habitat[i][j].getpredators());
+						return;
+					}
+					}
+				}
+			}
+			System.out.println("No animal with given ID was found.");
+		}
 }
