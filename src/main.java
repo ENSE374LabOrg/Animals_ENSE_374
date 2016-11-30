@@ -79,7 +79,7 @@ public class main {
 			System.out.println("What would you like to do Next?");
 			System.out.println("1.Add a lifeform.");
 			System.out.println("2.Remove a lifeform.");
-			System.out.println("3.View Next Day.");
+			System.out.println("3.Enter Next Day.");
 			System.out.println("4.Print lifeforms as a List.");
 			System.out.println("5.Print lifeforms as a Map.");
 			System.out.println("6.Skip n Days.");
