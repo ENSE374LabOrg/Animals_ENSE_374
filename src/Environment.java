@@ -161,7 +161,7 @@ public class Environment {
 			habitat[x][y] = null;
 			}
 			else{
-				System.out.println("No animal in sight.");
+				System.out.println("No Lifeform in sight.");
 			}
 		}
 		public void nextDay(){
@@ -354,7 +354,7 @@ public class Environment {
 				for(int j = 0; j < ydimension; j++){
 					if(habitat[i][j] != null){
 					if(habitat[i][j].getid() == id){
-						System.out.println("Animal Profile:");
+						System.out.println("Lifeform Profile:");
 						System.out.println("ID:" +habitat[i][j].getid());
 						System.out.println("Type:" +habitat[i][j].getType());
 						System.out.println("Symbol:" +habitat[i][j].getsymbol());
@@ -367,6 +367,6 @@ public class Environment {
 					}
 				}
 			}
-			System.out.println("No animal with given ID was found.");
+			System.out.println("No Lifeform with given ID was found.");
 		}
 }
